@@ -1,0 +1,145 @@
+/**ESTILOS GENERALES**/
+body{
+    background-color: #343a40;
+}
+
+
+/**BARRA DE NAVEGACION**/
+.btn-salir:hover{
+    background: red;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after{
+    float:right;
+    content:'-';
+    font-family:FontAwesome
+}
+
+#mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse.collapsed:after{
+    content:'+';
+}
+
+/**VISTA LOGIN**/
+.login{
+	padding: 2%;
+	background: #F0F0F0;
+	display: block;
+	margin: 10% auto;
+	width: 90%;
+	border: 1px solid white;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.login img{
+	display: block;
+	margin: 3% auto;
+	width: 100%;
+}
+
+.login hr{
+	border: 0.5px solid grey;
+	width: 90%;
+}
+
+.login p{
+	font-size: 15px;
+	text-align: center;
+}
+
+.login button{
+	width: 70%;
+	margin-left: 15%;
+	margin-top: 2%;
+}
+
+.login a{
+	color: grey;
+}
+
+/**VISTA RECUPERAR CONTRASEÑA**/
+.modalContraseña .modal-header{
+    display: block;
+    margin: auto;
+}
+
+
+/**VISTA ERROR PAGE**/
+.col-md-6{
+    width: 90%;
+    display: block;
+    margin: 7% auto;
+}
+
+.errorpage a{
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.errorpage{
+    padding: 4%;
+    border: 10px double yellow;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.errorpage img{
+    display: block;
+    margin: auto auto 0;
+    width: 110px;
+}   
+
+.errorpage h1{
+    margin-top: 2%;
+    text-align: center;
+    color: white;
+}
+
+.errorpage h5{
+    text-align: center;
+    color: white;
+}
+
+/**VISTA FOOTER**/
+footer{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+footer p{
+	color: white;
+	text-align: center;
+	font-size: 10px;
+}
+
+
+/**VISTA PERFIL**/
+.perfil{
+    border: 1px solid grey;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5%;
+}
+
+.perfil img{
+    display: block;
+    margin: auto;
+    width: 30%;
+}
+
+.perfil hr{
+    border: 1px solid grey;
+}
+
+.perfil .info{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.perfil button{
+    display: block;
+    margin: auto;
+}
+
+
+/**VISTA ADMIN**/
