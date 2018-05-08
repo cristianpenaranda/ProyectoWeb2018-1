@@ -21,13 +21,32 @@ class controlador{
 	}
       	include_once $enlace;
     }
-        
-    public function ingresarAdministradorControlador($personaDTO) {
-        return $this->negocio->ingresarAdministradorNegocio($personaDTO);
+      
+
+    //busca el usuario
+    public function buscarUsuarioControlador($usuario, $contraseña, $tipoUsuario){
+        return $this->negocio->buscarUsuarioNegocio($usuario, $contraseña, $tipoUsuario);
     }
     
-    public function ingresarFuncionarioControlador($personaDTO) {
-        return $this->negocio->ingresarFuncionarioNegocio($personaDTO);
+    //busca el nombre del usuario
+    public function buscarDatosControlador($usuario){
+        return $this->negocio->buscarDatosNegocio($usuario);
+    }
+
+    public function buscarUsuarioClave($usuario){
+        return $this->negocio->recordarClave($usuario);
+    }
+
+    public function verificarUsuarioControlador($usuario){
+        return $this->negocio->verificarUsuarioNegocio($usuario);
+    }
+    
+    public function registrarFuncionarioControlador($user) {
+        return $this->negocio->registrarFuncionarioNegocio($user);
+    }
+
+    public function listarFuncionario() {
+        return $this->negocio->listarFuncionario();
     }
 
 }

@@ -3,21 +3,36 @@ body{
     background-color: #343a40;
 }
 
+.email:focus:invalid{
+    border: 2px solid red;
+}
+
+.email:required:valid{
+    border: 2px solid green;
+}
+
+/**FLECHA SUBIR VISTA**/
+.flechaSubir{
+    display: none;
+    padding: 2%;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    position: fixed;
+    z-index: 1;
+    bottom: 5%;
+    right: 5%;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.flechaSubir:hover{
+    background: #0054AD;
+}
 
 /**BARRA DE NAVEGACION**/
 .btn-salir:hover{
     background: red;
     border-radius: 10px 10px 10px 10px;
-}
-
-#mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after{
-    float:right;
-    content:'-';
-    font-family:FontAwesome
-}
-
-#mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse.collapsed:after{
-    content:'+';
 }
 
 /**VISTA LOGIN**/
@@ -65,7 +80,7 @@ body{
 
 
 /**VISTA ERROR PAGE**/
-.col-md-6{
+.col-md-7{
     width: 90%;
     display: block;
     margin: 7% auto;
@@ -103,8 +118,6 @@ body{
 /**VISTA FOOTER**/
 footer{
 	width: 100%;
-	position: absolute;
-	bottom: 0;
 }
 
 footer p{
@@ -125,6 +138,7 @@ footer p{
     display: block;
     margin: auto;
     width: 30%;
+    margin-bottom: 3%;
 }
 
 .perfil hr{
@@ -141,5 +155,118 @@ footer p{
     margin: auto;
 }
 
+.perfil h2{
+    text-align: center;
+}
+
+
+/**FONDO APLICACION**/
+.fondoApp{
+    width: 100%;
+    padding: 3%;
+    background: white;
+}
+
+
 
 /**VISTA ADMIN**/
+.fondoRegistros{
+    width: 80%;
+    border: 1px solid grey;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5%;
+    display: block;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.fondoRegistros h2{
+    text-align: center;
+}
+
+.fondoRegistros button{
+    width: 40%;
+    display: block;
+    margin: auto;
+}
+
+.combo{
+    color: #868e96;
+}
+
+.combo:hover{
+    color: #ADB5BD;
+}
+
+.combo .dropdown-item:hover{
+    background: #868e96;
+}
+
+.fondoApp .col-md-8{
+    margin-left: 23%;
+    margin-right: 0;
+}
+
+.fondoApp .item{
+    width: 30%;
+}
+
+.fondoTablas{
+    width: 80%;
+    margin-left: 10%;
+}
+
+
+/**RESPONSIVE**/
+@media screen and (max-width:800px) {
+    .login{
+	width: 100%;
+        margin-bottom: 20%;
+    }
+   
+    .fondoApp{
+        margin-left: 0;
+        margin-top: 12%;
+    }
+    
+    .perfil{
+        width: 100%;
+    }
+    
+    .fondoRegistros{
+        width: 95%;
+        margin-top: 7%;
+        margin-bottom: 10%;
+    }
+
+    .flechaSubir{
+        padding: 3%;
+        right: 8%;
+        border-radius: 20px 20px 20px 20px;
+    }
+    .fondoApp .col-md-12{
+        margin-left: 0;
+    }
+
+    .fondoApp .item{
+        width: 31%;
+    }
+    
+    .fondoApp .item span{
+        font-size: 12px;
+    }
+    
+    .fondoTablas{
+        width: 95%;
+        margin-left: 3%;
+    }
+
+    .fondoApp .col-md-8{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .botones{
+        width: 35px;
+    }
+}

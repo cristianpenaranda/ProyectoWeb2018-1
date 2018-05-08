@@ -4,18 +4,20 @@ class PersonaDTO{
     
     private $cedula;
     private $nombre;
+    private $apellidos;
     private $telefono;
     private $correo;
     private $direecion;
     private $clave;
     private $tipo;
     
-    function __construct($cedula, $nombre, $telefono, $correo, $direecion, $clave, $tipo) {
+    function __construct($cedula, $nombre, $apellidos, $telefono, $correo, $direecion, $clave, $tipo) {
         $this->cedula = $cedula;
         $this->nombre = $nombre;
+        $this->apellidos = $apellidos;
         $this->telefono = $telefono;
         $this->correo = $correo;
-        $this->direecion = $direecion;
+        $this->direccion = $direecion;
         $this->clave = $clave;
         $this->tipo = $tipo;
     }
@@ -27,6 +29,10 @@ class PersonaDTO{
     function getNombre() {
         return $this->nombre;
     }
+    
+    function getApellidos() {
+        return $this->apellidos;
+    }
 
     function getTelefono() {
         return $this->telefono;
@@ -36,8 +42,8 @@ class PersonaDTO{
         return $this->correo;
     }
 
-    function getDireecion() {
-        return $this->direecion;
+    function getDireccion() {
+        return $this->direccion;
     }
 
     function getClave() {
@@ -55,6 +61,10 @@ class PersonaDTO{
     function setNombre($nombre) {
         $this->nombre = $nombre;
     }
+    
+    function setApellidos($apellidos) {
+        $this->apellidos = $apellidos;
+    }
 
     function setTelefono($telefono) {
         $this->telefono = $telefono;
@@ -64,8 +74,8 @@ class PersonaDTO{
         $this->correo = $correo;
     }
 
-    function setDireecion($direecion) {
-        $this->direecion = $direecion;
+    function setDireccion($direccion) {
+        $this->direecion = $direccion;
     }
 
     function setClave($clave) {

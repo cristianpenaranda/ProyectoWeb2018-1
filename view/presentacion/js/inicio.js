@@ -29,7 +29,7 @@ $(document).ready(function () {
                 url: 'view/modulos/ajax.php',
                 method: 'post',
                 data: datos,
-                dataType: 'json',
+                dataType: "json",
 
                 beforeSend: function () {
                     respuestaInfoEspera("Espera un momento por favor.");
@@ -39,7 +39,7 @@ $(document).ready(function () {
                     if (respuesta["exito"]) {
                         ingresoExitoso("Iniciaste Sesión","Bienvenido a nuestra Aplicación");
                     } else if (!respuesta["exito"]) {
-                        respuestaError("Error al Iniciar", "¿ Tienes una Cuenta ?  " + respuesta["error"]);
+                        respuestaError("Error al Iniciar", "Revisa el Usuario, la Contraseña y el Tipo de Usuario");
                     }
 
                 },

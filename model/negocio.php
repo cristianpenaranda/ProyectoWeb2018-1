@@ -11,71 +11,69 @@ class negocio{
 	public function generarEnlace($enlace){
                 if($this->validarPestañas($enlace)){
 			return "view/modulos/pestañas/".$enlace.".php";
-		}else if($this->validarPestañaRedireccion($enlace)){
-			return "view/modulos/".$enlace.".php";
+		}else if($this->validarPestañasAdmin($enlace)){
+			return "view/modulos/pestañas/pestañasAdmin/".$enlace.".php";
+		}else if($this->validarPestañasFun($enlace)){
+			return "view/modulos/pestañas/pestañasFun/".$enlace.".php";
 		}else{
 			return "view/modulos/pestañas/errorpage.php";
 		}
 	}
 
-	//OBTIENE A PESTAÑA DEL MENU
-	private function validarPestañas($pestaña){
+        //OBTIENE A PESTAÑA DEL MENU DE ADIMINISTRADOR
+	private function validarPestañasAdmin($pestaña){
 		$exito=false;
-		$pestañas=array("Inicio","Admin","Funcionario","ErrorPage","Perfil",
-                                "inicio","admin","funcionario","errorpage","perfil");
+		$pestañas=array("RegistroFuncionario","RegistroDrogueria","Listados");
 		if(in_array($pestaña, $pestañas)){
 			$exito=true;
 		}
 		return $exito;
 	}
 
-	//OBTIENE LA PESTAÑA A REDIRIGIR
-	private function validarPestañaRedireccion($pestaña){
+        //OBTIENE A PESTAÑA DEL MENU DE FUNCIONARIO
+	private function validarPestañasFun($pestaña){
 		$exito=false;
-		$pestañas=array("otras");
+		$pestañas=array("RegistroFormato");
 		if(in_array($pestaña, $pestañas)){
 			$exito=true;
 		}
 		return $exito;
 	}
-        
-        public function ingresarAdministradorNegocio($personaDTO) {
-            $persona = PersonaDAO::IngresarAdministrador($personaDTO);
-            $exito = false;
-            if ($persona) {
-                $this->guardarDatosPerfilPersona($persona);
-                $exito = true;
-            }
-            return $exito;
-        }
-        
-        private function guardarDatosPerfilAdministrador($persona) {
-            $datos = array("nombre" => $persona["nombre"],
-                "cedula" => $persona["cedula"],
-                "tipo" => $persona["1"],
-                "correo" => $persona["correo"],
-                "telefono" => $persona["telefono"],
-                "direccion" => $persona["direccion"]);
-            $_SESSION["perfil"] = $datos;
-        }
-        
-        public function ingresarFuncionarioNegocio($personaDTO) {
-            $persona = PersonaDAO::IngresarFuncionario($personaDTO);
-            $exito = false;
-            if ($persona) {
-                $this->guardarDatosPerfilFuncionario($persona);
-                $exito = true;
-            }
-            return $exito;
-        }
-        
-        private function guardarDatosPerfilFuncionario($persona) {
-            $datos = array("nombre" => $persona["nombre"],
-                "cedula" => $persona["cedula"],
-                "tipo" => $persona["2"],
-                "correo" => $persona["correo"],
-                "telefono" => $persona["telefono"],
-                "direccion" => $persona["direccion"]);
-            $_SESSION["perfil"] = $datos;
-        }
+
+	//OBTIENE A PESTAÑA DEL MENU
+	private function validarPestañas($pestaña){
+		$exito=false;
+		$pestañas=array("Inicio","ErrorPage","Perfil","Salir");
+		if(in_array($pestaña, $pestañas)){
+			$exito=true;
+		}
+		return $exito;
+	}
+
+
+    //busca el usuario
+    public function buscarUsuarioNegocio($usuario, $contraseña, $tipoUsuario){
+        return PersonaDAO::buscarUsuario($usuario, $contraseña, $tipoUsuario);
+    }
+
+    //busca el nombre del usuario
+    public function buscarDatosNegocio($usuario){
+        return PersonaDAO::buscarDatosUsuario($usuario);
+    }
+
+    public function recordarClave($usuario){
+    	return PersonaDAO::recordarUsuario($usuario);
+    }
+
+    public function verificarUsuarioNegocio($usuario){
+    	return PersonaDAO::verificarUsuario($usuario);
+    }
+    
+    public function registrarFuncionarioNegocio($user){
+        return PersonaDAO::registrarFuncionarioDAO($user);
+    }
+
+    public function listarFuncionario(){
+    	return PersonaDAO::listarFuncionario();
+    }
 }
