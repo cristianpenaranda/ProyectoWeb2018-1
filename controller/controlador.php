@@ -48,5 +48,66 @@ class controlador{
     public function listarFuncionario() {
         return $this->negocio->listarFuncionario();
     }
+    
+    public function EliminarFuncionarioControlador($usuario){
+        return $this->negocio->EliminarFuncionarioNegocio($usuario);
+    }
+    
+    public function verificarClaveControlador($usuario, $anterior){
+        return $this->negocio->verificarClaveNegocio($usuario, $anterior);
+    }
+    
+    public function cambiarContraseñaControlador($usuario, $nueva){
+        return $this->negocio->cambiarContraseñaNegocio($usuario, $nueva);
+    }
+    
+    
+    
+    //busca la drogueria
+    public function buscarDrogueriaControlador($nit){
+        return $this->negocio->buscarDrogueriaNegocio($nit);
+    }    
+    
+    //registra la drogueria
+    public function registrarDrogueriaControlador($drogueria){
+        return $this->negocio->registrarDrogueriaNegocio($drogueria);
+    }
+
+    public function listarDrogueriaControlador() {
+        return $this->negocio->listarDrogueriaNegocio();
+    }
+    
+    //busca el nombre de ña drgoueria
+    public function buscarDatosDrogueriaControlador($nit){
+        return $this->negocio->buscarDatosDrogueriaNegocio($nit);
+    }
+    
+    public function EliminarDrogueriaControlador($nit){
+        return $this->negocio->EliminarDrogueriaNegocio($nit);
+    }
+    
+    
+    //registra el formato    
+    public function registroFormatoControlador($formato){
+        return $this->negocio->registroFormatoNegocio($formato);
+    }
+    
+    //busca el ultimo formato ingresado    
+    public function buscarUltimoFormatoControlador(){
+        return $this->negocio->buscarUltimoFormatoNegocio();
+    }
+    
+    //ingresar formato y drogueria a nueva tabla    
+    public function ingresarFormatoDrogueriaControlador($dro,$id){
+        return $this->negocio->ingresarFormatoDrogueriaNegocio($dro,$id);
+    }
+    
+    public function listarFormatosControlador() {
+        return $this->negocio->listarFormatosNegocio();
+    }
+    
+    public function formatoPDFControlador($id, $nit){
+        return $this->negocio->formatoPDFNegocio($id, $nit);
+    }
 
 }
