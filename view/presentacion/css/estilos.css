@@ -40,7 +40,7 @@ body{
 	padding: 2%;
 	background: #F0F0F0;
 	display: block;
-	margin: 10% auto;
+	margin: 6% auto;
 	width: 90%;
 	border: 1px solid white;
 	border-radius: 10px 10px 10px 10px;
@@ -216,6 +216,14 @@ footer p{
     margin-left: 10%;
 }
 
+/**VISTA REGISTRO FORMATO**/
+.formato{
+    border: 1px solid black;
+}
+
+#formFormato input{
+    text-align: center;
+}
 
 /**RESPONSIVE**/
 @media screen and (max-width:800px) {
