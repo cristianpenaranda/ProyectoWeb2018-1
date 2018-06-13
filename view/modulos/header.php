@@ -41,19 +41,7 @@
         
       </ul>
       
-      <ul class="navbar-nav ml-auto">        
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Buscar...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <span class="ion-search"></span>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item btn-salir">
           <a class="nav-link" href="Salir" id="salir">
             <span class="ion-log-out"></span> Salir</a>
@@ -80,19 +68,7 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">        
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Buscar...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <span class="ion-search"></span>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
+      <ul class="navbar-nav ml-auto">     
         <li class="nav-item btn-salir">
           <a class="nav-link"  href="Salir" id="salir">
             <span class="ion-log-out"></span> Salir</a>
