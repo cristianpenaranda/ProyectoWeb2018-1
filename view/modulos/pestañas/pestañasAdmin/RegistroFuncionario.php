@@ -3,10 +3,11 @@
         <h2>Registro de Funcionario</h2>
         <hr>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3" style="text-align: center;">
                 <img src="https://drive.google.com/uc?export=view&id=1VAVdqLOT3aPd8XqyhcBVkV9TVa3n3A-z" alt="" class="img-rounded img-responsive" style="width: 80%;display: block;margin: auto;"/>
+                <a href="#">Editar Foto</a>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <form id="FormRegistroFuncionario" method="POST">
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
