@@ -103,14 +103,14 @@ class PersonaDAO{
         $conexion = Conexion::crearConexion();
         try {
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stm = $conexion->prepare("select cedula,nombre,apellidos from persona");
+            $stm = $conexion->prepare("select cedula,nombre,apellidos from persona where tipo='Funcionario'");
             $stm->execute();
             $cadena ="";
             while($personas = $stm->fetch()){
              $cadena.= '<tr><td>'.$personas['cedula'].'</td>'
                         . '<td>'.$personas['nombre'].' '.$personas['apellidos'].'</td>'
-                        . '<td><button type="button" class="botones btn btn-outline-secondary ml-2"><span class="ion-eye"></span></button>'
-                        . '<button type="button" class="botones btn btn-outline-danger ml-2"><span class="ion-close-round"></span></button></td>'
+                        . '<td><button type="button" id="'.$personas['cedula'].'" class="ActionVerFuncionario btn btn-outline-secondary ml-2" title="Ver Información" href="#VerInfoFuncionario" data-toggle="modal"><span class="ion-eye"></span></button>'
+                        . '<button type="button" id="'.$personas['cedula'].'" class="ActionEliminarFuncionario btn btn-outline-danger ml-2" title="Eliminar Funcionario"><span class="ion-close-round"></span></button></td>'
                         . '</tr>';
             }
 
@@ -119,5 +119,58 @@ class PersonaDAO{
         }
         return $cadena;
     }
+    
+    
+    //ELIMINAR PERSONA 
+    function eliminarFuncionarioDAO($usuario){
+        $conexion = Conexion::crearConexion();
+        $exito = false;
+        try {           
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stm = $conexion->prepare("DELETE FROM persona WHERE cedula=?");
+            $stm->bindParam(1, $usuario, PDO::PARAM_STR);
+            $exito = $stm->execute();
+        } catch (Exception $ex) {
+            throw new Exception("Error al eliminar la persona");
+        }
+        return $exito;
+    }
+    
+    
+    //verificar contraseña
+    function verificarClaveDAO($usuario, $anterior){
+        $conexion = Conexion::crearConexion();
+        $persona = false;
+        try {
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stm = $conexion->prepare("SELECT nombre FROM persona WHERE cedula=? AND clave=?");
+            $stm->bindParam(1, $usuario, PDO::PARAM_STR);
+            $stm->bindParam(2, $anterior, PDO::PARAM_STR);
+            $stm->execute();
+            $row = $stm->rowCount();
+            if ($row>0) {
+                $persona = true;
+            }
+        } catch (Exception $ex) {
+            throw new Exception("Error al verificar usuario y contraseña");
+        }
+        return $persona;
+    }
+    
+    //CAMBIAR CONTRASEÑA
+    function cambiarContraseñaDAO($usuario, $nueva){
+        $conexion = Conexion::crearConexion();
+        try {
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stm = $conexion->prepare("UPDATE persona SET clave=? WHERE cedula=?");
+            $stm->bindParam(1, $nueva, PDO::PARAM_STR);
+            $stm->bindParam(2, $usuario, PDO::PARAM_STR);
+            $stm->execute();
+        } catch (Exception $ex) {
+            throw new Exception("Error al cambiar contraseña");
+        }
+        return true;
+    }
+    
 }
 
