@@ -76,4 +76,64 @@ class negocio{
     public function listarFuncionario(){
     	return PersonaDAO::listarFuncionario();
     }
+    
+    public function eliminarFuncionarioNegocio($usuario) {
+        return PersonaDAO::eliminarFuncionarioDAO($usuario);
+    }
+    
+    public function verificarClaveNegocio($usuario, $anterior){
+        return PersonaDAO::verificarClaveDAO($usuario, $anterior);
+    }
+    
+    public function cambiarContraseñaNegocio($usuario, $nueva) {
+        return PersonaDAO::cambiarContraseñaDAO($usuario, $nueva);
+    }
+    
+      
+    
+    //busca info de la drogueria
+    public function buscarDrogueriaNegocio($nit){
+        return DrogueriaDAO::buscarDrogueriaDAO($nit);
+    }    
+    
+    //registra la drogueria
+    public function registrarDrogueriaNegocio($drogueria){
+        return DrogueriaDAO::registrarDrogueriaDAO($drogueria);
+    }
+
+    public function listarDrogueriaNegocio(){
+    	return DrogueriaDAO::listarDrogueriaDAO();
+    }
+    
+    //busca datos de la drogueria
+    public function buscarDatosDrogueriaNegocio($nit){
+        return DrogueriaDAO::buscarDatosDrogueriaUsuario($nit);
+    }
+    
+    public function eliminarDrogueriaNegocio($nit) {
+        return DrogueriaDAO::eliminarDrogueriaDAO($nit);
+    }
+    
+    //registro del formato
+    public function registroFormatoNegocio($formato) {
+        return FormatoDAO::registroFormatoDAO($formato);
+    }
+    
+    //busca el ultimo formato ingresado 
+    public function buscarUltimoFormatoNegocio() {
+        return FormatoDAO::buscarUltimoFormatoDAO();
+    }
+    
+    //ingresar formato y drogueria a nueva tabla   
+    public function ingresarFormatoDrogueriaNegocio($dro,$id) {
+        return FormatoDAO::ingresarFormatoDrogueriaDAO($dro,$id);
+    }
+
+    public function listarFormatosNegocio(){
+    	return FormatoDAO::listarFormatosDAO();
+    }
+    
+    public function formatoPDFNegocio($id, $nit){
+    	return FormatoDAO::formatoPDFDAO($id, $nit);
+    }
 }
